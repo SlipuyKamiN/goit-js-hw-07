@@ -19,21 +19,16 @@ const makeMarkup = (array) => {
 
 refs.gallery.insertAdjacentHTML("beforeend", makeMarkup(galleryItems));
 
-const onImageClick = (event) => {
-  event.preventDefault();
-  if (!event.target.classList.contains("gallery__image")) {
-    return;
-  }
+let gallery = new SimpleLightbox(".gallery a", {
+  captionsData: "alt",
+  captionDelay: 250,
+});
 
-  let gallery = new SimpleLightbox(".gallery a");
-  gallery.on("show.simplelightbox", function () {});
+// const onImageClick = (event) => {
+//   event.preventDefault();
+//   if (!event.target.classList.contains("gallery__image")) {
+//     return;
+//   }
+// };
 
-  gallery.on("error.simplelightbox", function (e) {
-    console.log(e);
-  });
-
-  gallery.options.captionsData = "alt";
-  gallery.options.captionDelay = 250;
-};
-
-refs.gallery.addEventListener("click", onImageClick);
+// refs.gallery.addEventListener("click", onImageClick);
